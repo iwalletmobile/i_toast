@@ -1,0 +1,33 @@
+name: i_toast
+description: >
+  A Flutter package for displaying customizable toast notifications. 
+  Provides easy-to-use and non-intrusive toast messages with options 
+  for customization including duration, position, and appearance.
+version: 0.0.1
+homepage:
+repository:
+topics: [animation, toast message]
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+environment:
+  sdk: ">=2.12.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  assets:
+    - assets/
