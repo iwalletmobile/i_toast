@@ -4,9 +4,9 @@ description: >
   Provides easy-to-use and non-intrusive toast messages with options 
   for customization including duration, position, and appearance.
 version: 0.0.1
-homepage:
-repository:
-topics: [animation, toast message]
+homepage: https://github.com/iwalletmobilecase/i_toast
+repository: https://github.com/iwalletmobilecase/i_toast
+topics: [animation, toast, message]
 platforms:
   android:
   ios:
