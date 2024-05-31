@@ -35,7 +35,7 @@ class ColorConstants {
     {
       100: Color(0xFFF7FFFA),
       200: Color(0xFFF0FFF5),
-      300: Color(0xff8CFFB3),
+      300: Color(0xff53DE82),
     },
   );
 }
