@@ -1,11 +1,11 @@
-# itoast
-Toastify is a Flutter package used to display toast messages in applications. This package is utilized to provide users with temporary notifications, typically used to convey successful operations, errors, warnings, or informative messages.
+# iToast
+iToast is a Flutter package used to display toast messages in applications. This package is utilized to provide users with temporary notifications, typically used to convey successful operations, errors, warnings, or informative messages.
 
 <img src="assets/itoast.gif" alt="Example Project" style="width: 200px; height: auto;">
 
 ## Table of contents
 
-- [itoast](#itoast)
+- [iToast](#itoast)
   - [Table of contents](#table-of-contents)
   - [Features](#features)
     - [itoast Message Types](#itoast-message-types)
@@ -16,15 +16,15 @@ Toastify is a Flutter package used to display toast messages in applications. Th
 
 ## Features
 
-- **Title and subtitle content:** Toastify allows including both title and subtitle content in the toast messages.
+- **Title and subtitle content:** iToast allows including both title and subtitle content in the toast messages.
 - **Complementary content with an icon or custom widget:** Users can add icons or custom widgets to enhance the toast messages.
-- **Display duration as desired:** Toastify provides options to specify the duration for which the toast message is displayed.
+- **Display duration as desired:** iToast provides options to specify the duration for which the toast message is displayed.
 - **Customizable background color, border color, and border radius:** Users can customize the background color, border color, and border radius of the toast messages according to their preferences.
-- **Custom sizing options:** Toastify offers customization options for the width and height of the toast messages.
+- **Custom sizing options:** iToast offers customization options for the width and height of the toast messages.
 
 ### itoast Message Types
 
-Toastify offers five different types of toast messages:
+iToast offers five different types of toast messages:
 
 - **InfoToastMessage:** Used for informative messages.
 - **SuccessToastMessage:** Indicates successful operations.
