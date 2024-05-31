@@ -52,7 +52,8 @@ class IToast extends StatelessWidget {
                         context,
                         "${toast.key.name} description.",
                         toast.key,
-                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
+                        title: toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
                         leading: Icon(
                           Icons.info,
                           color: toast.value,
@@ -63,7 +64,8 @@ class IToast extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text('${toast.key.name.toUpperCase()} with leading and trailing'),
+                    child: Text(
+                        '${toast.key.name.toUpperCase()} with leading and trailing'),
                   ).addSize;
                 },
               ),
@@ -75,14 +77,16 @@ class IToast extends StatelessWidget {
                         context,
                         "${toast.key.name} description.",
                         toast.key,
-                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
+                        title: toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
                         trailing: Icon(
                           Icons.close,
                           color: toast.value,
                         ),
                       );
                     },
-                    child: Text('${toast.key.name.toUpperCase()} without trailing'),
+                    child: Text(
+                        '${toast.key.name.toUpperCase()} without trailing'),
                   ).addSize;
                 },
               ),
@@ -94,14 +98,16 @@ class IToast extends StatelessWidget {
                         context,
                         "${toast.key.name} description.",
                         toast.key,
-                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
+                        title: toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
                         leading: Icon(
                           Icons.info,
                           color: toast.value,
                         ),
                       );
                     },
-                    child: Text('${toast.key.name.toUpperCase()} without leading'),
+                    child:
+                        Text('${toast.key.name.toUpperCase()} without leading'),
                   ).addSize;
                 },
               ),
