@@ -31,6 +31,28 @@ import 'warning_toast_message.dart';
 /// * [toastHeight] The height of the toast message.
 
 class IToastService {
+  /// Shows a Toast Message with an OverlayEntry on top of the screen
+  /// ```dart
+  /// ElevatedButton(
+  ///             onPressed: () {
+  ///               IToast.show(
+  ///                 context,
+  ///                 title: 'Information',
+  ///                 description: 'Hello, World!',
+  ///                 trailing: const Icon(Icons.close_rounded),
+  ///                 toastType: ToastType.info,
+  ///                 leading: leading,
+  ///                 duration: Durations.extralong4,
+  ///                 toastBackgroundColor: backgroundColor,
+  ///                 toastBorder: border,
+  ///                 toastBorderRadius: borderRadius,
+  ///                 toastTextColor: textColor,
+  ///               );
+  ///             },
+  ///             child: const Text('Show Toast'),
+  ///           ),
+  /// ```
+
   static void show(
     BuildContext context, {
     required String title,
@@ -86,10 +108,6 @@ class IToastService {
     } else {
       Navigator.of(context).overlay?.insert(overlayEntry);
     }
-
-    // Timer(duration, () {
-    //   overlayEntry?.remove();
-    // });
   }
 }
 
