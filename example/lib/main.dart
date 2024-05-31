@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +23,16 @@ class MyApp extends StatelessWidget {
 }
 
 class IToast extends StatelessWidget {
-  const IToast({super.key});
+  const IToast({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final List<ToastType> toastType = [ToastType.error, ToastType.info, ToastType.success, ToastType.warning];
+    final List<ToastType> toastType = [
+      ToastType.error,
+      ToastType.info,
+      ToastType.success,
+      ToastType.warning
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text("iToast Example"),
@@ -44,7 +49,8 @@ class IToast extends StatelessWidget {
                 onPressed: () {
                   _showToastMessage(
                     context,
-                    toastType[index].name.substring(0, 1).toUpperCase() + toastType[index].name.substring(1),
+                    toastType[index].name.substring(0, 1).toUpperCase() +
+                        toastType[index].name.substring(1),
                     "${toastType[index].name} subtitle.",
                     toastType[index],
                     leading: const Icon(Icons.info),

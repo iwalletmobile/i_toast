@@ -1,11 +1,11 @@
-# iToast
-iToast is a Flutter package used to display toast messages in applications. This package is utilized to provide users with temporary notifications, typically used to convey successful operations, errors, warnings, or informative messages.
+# i_toast
+i_toast is a Flutter package used to display toast messages in applications. This package is utilized to provide users with temporary notifications, typically used to convey successful operations, errors, warnings, or informative messages.
 
-<img src="assets/itoast.gif" alt="Example Project" style="width: 200px; height: auto;">
+<img src="https://github.com/iwalletmobilecase/i_toast/assets/105479937/b657cfdd-effe-428b-b1fe-cc27c134884a" alt="Example Project" style="width: 200px; height: auto;">
 
 ## Table of contents
 
-- [iToast](#itoast)
+- [i\_toast](#i_toast)
   - [Table of contents](#table-of-contents)
   - [Features](#features)
     - [itoast Message Types](#itoast-message-types)
