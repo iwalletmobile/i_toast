@@ -13,13 +13,13 @@ import 'warning_toast_message.dart';
 
 /// Display a toast message with specified parameters.
 ///
-/// Displays a toast message with a title, subtitle, trailing widget,
+/// Displays a toast message with a title, description, trailing widget,
 /// and customizable appearance. Toast messages can be of type success,
 /// error, info, warning, or custom.
 ///
 /// * [context] The build context.
 /// * [title] The title of the toast message.
-/// * [subtitle] The subtitle of the toast message.
+/// * [description] The description of the toast message.
 /// * [trailing] The widget to be displayed at the end of the toast message.
 /// * [toastType] The type of toast message.
 /// * [duration] The duration for which the toast message is displayed.
@@ -31,10 +31,32 @@ import 'warning_toast_message.dart';
 /// * [toastHeight] The height of the toast message.
 
 class IToastService {
+  /// Shows a Toast Message with an OverlayEntry on top of the screen
+  /// ```dart
+  /// ElevatedButton(
+  ///             onPressed: () {
+  ///               IToast.show(
+  ///                 context,
+  ///                 title: 'Information',
+  ///                 description: 'Hello, World!',
+  ///                 trailing: const Icon(Icons.close_rounded),
+  ///                 toastType: ToastType.info,
+  ///                 leading: leading,
+  ///                 duration: Durations.extralong4,
+  ///                 toastBackgroundColor: backgroundColor,
+  ///                 toastBorder: border,
+  ///                 toastBorderRadius: borderRadius,
+  ///                 toastTextColor: textColor,
+  ///               );
+  ///             },
+  ///             child: const Text('Show Toast'),
+  ///           ),
+  /// ```
+
   static void show(
     BuildContext context, {
     required String title,
-    required String subtitle,
+    required String description,
     required ToastType toastType,
     Duration duration = const Duration(milliseconds: 7000),
     Widget? leading,
@@ -58,7 +80,7 @@ class IToastService {
             type: MaterialType.transparency,
             child: _ToastMessageWidget(
               title: title,
-              subtitle: subtitle,
+              description: description,
               trailing: trailing,
               toastType: toastType,
               duration: duration,
@@ -86,17 +108,13 @@ class IToastService {
     } else {
       Navigator.of(context).overlay?.insert(overlayEntry);
     }
-
-    // Timer(duration, () {
-    //   overlayEntry?.remove();
-    // });
   }
 }
 
 /// Internal widget for displaying the toast message.
 class _ToastMessageWidget extends StatefulWidget {
   final String title;
-  final String subtitle;
+  final String description;
   final Widget? trailing;
   final Function onDismissed;
   final ToastType toastType;
@@ -115,7 +133,7 @@ class _ToastMessageWidget extends StatefulWidget {
     required this.title,
     required this.onDismissed,
     required this.toastType,
-    required this.subtitle,
+    required this.description,
     required this.duration,
     required this.leading,
     this.trailing,
@@ -189,7 +207,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
   IToastMessageWidget _findToastWidget(
     ToastType toastType,
     String title,
-    String subtitle,
+    String description,
     Widget? trailing,
     Widget? leading,
     Color? customBackgroundColor,
@@ -204,7 +222,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       case ToastType.success:
         return SuccessToastMessage(
           toastTitle: title,
-          toastSubtitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -212,7 +230,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       case ToastType.error:
         return ErrorToastMessage(
           toastTitle: title,
-          toastSubTitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -220,7 +238,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       case ToastType.info:
         return InfoToastMessage(
           toastTitle: title,
-          toastSubtitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -228,7 +246,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       case ToastType.warning:
         return WarningToastMessage(
           toastTitle: title,
-          toastSubtitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -236,7 +254,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       case ToastType.custom:
         return CustomToastMessage(
           toastTitle: title,
-          toastSubtitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -250,7 +268,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
       default:
         return SuccessToastMessage(
           toastTitle: title,
-          toastSubtitle: subtitle,
+          toastDescription: description,
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
@@ -276,7 +294,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
               child: _findToastWidget(
                 widget.toastType,
                 widget.title,
-                widget.subtitle,
+                widget.description,
                 widget.trailing,
                 widget.leading,
                 widget.toastBackgroundColor,

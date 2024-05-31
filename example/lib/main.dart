@@ -1,3 +1,4 @@
+import 'package:example/widget_extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:i_toast/i_toast.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'iToast Example',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -27,57 +28,109 @@ class IToast extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<ToastType> toastType = [
-      ToastType.error,
-      ToastType.info,
-      ToastType.success,
-      ToastType.warning
-    ];
+    final Map<ToastType, Color> toastTypes = {
+      ToastType.error: ColorConstants.statesError.shade300,
+      ToastType.info: ColorConstants.statesInfo.shade300,
+      ToastType.success: ColorConstants.statesSuccess.shade300,
+      ToastType.warning: ColorConstants.statesWarning.shade300
+    };
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("iToast Example"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: toastType.length,
-              padding: const EdgeInsets.symmetric(horizontal: 120),
-              itemBuilder: (context, index) => ElevatedButton(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ...toastTypes.entries.map(
+                (toast) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      _showToastMessage(
+                        context,
+                        toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
+                        "${toast.key.name} description.",
+                        toast.key,
+                        leading: Icon(
+                          Icons.info,
+                          color: toast.value,
+                        ),
+                        trailing: Icon(
+                          Icons.close,
+                          color: toast.value,
+                        ),
+                      );
+                    },
+                    child: Text(
+                        '${toast.key.name.toUpperCase()} with leading and trailing'),
+                  ).addSize;
+                },
+              ),
+              ...toastTypes.entries.map(
+                (toast) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      _showToastMessage(
+                        context,
+                        toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
+                        "${toast.key.name} description.",
+                        toast.key,
+                        trailing: Icon(
+                          Icons.close,
+                          color: toast.value,
+                        ),
+                      );
+                    },
+                    child: Text(
+                        '${toast.key.name.toUpperCase()} without trailing'),
+                  ).addSize;
+                },
+              ),
+              ...toastTypes.entries.map(
+                (toast) {
+                  return ElevatedButton(
+                    onPressed: () {
+                      _showToastMessage(
+                        context,
+                        toast.key.name.substring(0, 1).toUpperCase() +
+                            toast.key.name.substring(1),
+                        "${toast.key.name} description.",
+                        toast.key,
+                        leading: Icon(
+                          Icons.info,
+                          color: toast.value,
+                        ),
+                      );
+                    },
+                    child:
+                        Text('${toast.key.name.toUpperCase()} without leading'),
+                  ).addSize;
+                },
+              ),
+              ElevatedButton(
                 onPressed: () {
                   _showToastMessage(
                     context,
-                    toastType[index].name.substring(0, 1).toUpperCase() +
-                        toastType[index].name.substring(1),
-                    "${toastType[index].name} subtitle.",
-                    toastType[index],
-                    leading: const Icon(Icons.info),
+                    'Custom iToast',
+                    "Custom iToast description.",
+                    ToastType.custom,
+                    backgroundColor: Colors.blueGrey.shade50,
+                    border: Border.all(
+                      color: Colors.blueGrey,
+                    ),
+                    leading: const Icon(Icons.explore, color: Colors.teal),
+                    borderRadius: BorderRadius.circular(24),
+                    textColor: Colors.black,
                   );
                 },
-                child: const Text("Show iToast"),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                _showToastMessage(
-                  context,
-                  'Custom iToast',
-                  "Custom iToast subtitle.",
-                  ToastType.custom,
-                  backgroundColor: Colors.blueGrey.shade50,
-                  border: Border.all(
-                    color: Colors.blueGrey,
-                  ),
-                  leading: const Icon(Icons.explore, color: Colors.teal),
-                  borderRadius: BorderRadius.circular(24),
-                  textColor: Colors.black,
-                );
-              },
-              child: const Text('Show Custom iToast'),
-            ),
-          ],
+                child: const Text('Show Custom iToast'),
+              ).addSize,
+            ],
+          ),
         ),
       ),
     );
@@ -87,10 +140,11 @@ class IToast extends StatelessWidget {
 void _showToastMessage(
   BuildContext context,
   String title,
-  String subTitle,
+  String description,
   ToastType toastType, {
   Color? backgroundColor,
   Border? border,
+  Widget? trailing,
   Widget? leading,
   Color? textColor,
   BorderRadius? borderRadius,
@@ -98,8 +152,8 @@ void _showToastMessage(
   IToastService.show(
     context,
     title: title,
-    subtitle: subTitle,
-    trailing: const Icon(Icons.close_rounded),
+    description: description,
+    trailing: trailing,
     toastType: toastType,
     leading: leading,
     duration: Durations.extralong4,
