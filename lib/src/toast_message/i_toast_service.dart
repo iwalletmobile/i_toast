@@ -34,7 +34,7 @@ class IToastService {
   static void show(
     BuildContext context, {
     required String title,
-    required String subtitle,
+    required String description,
     required ToastType toastType,
     Duration duration = const Duration(milliseconds: 7000),
     Widget? leading,
@@ -58,7 +58,7 @@ class IToastService {
             type: MaterialType.transparency,
             child: _ToastMessageWidget(
               title: title,
-              subtitle: subtitle,
+              subtitle: description,
               trailing: trailing,
               toastType: toastType,
               duration: duration,

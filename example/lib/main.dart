@@ -98,7 +98,7 @@ void _showToastMessage(
   IToastService.show(
     context,
     title: title,
-    subtitle: subTitle,
+    description: subTitle,
     trailing: const Icon(Icons.close_rounded),
     toastType: toastType,
     leading: leading,
