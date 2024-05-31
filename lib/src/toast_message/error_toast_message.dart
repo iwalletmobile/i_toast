@@ -21,9 +21,9 @@ class ErrorToastMessage extends IToastMessageWidget {
           key: key,
           title: toastTitle,
           subTitle: toastSubTitle,
-          backgroundColor: ColorConstant.lightOrange,
+          backgroundColor: ColorConstant.red,
           border: Border.all(
-            color: ColorConstant.orange,
+            color: ColorConstant.lightRed,
           ),
           trailing: toastTrailing,
           onTap: onTapTrailing,

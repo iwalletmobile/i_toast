@@ -6,8 +6,8 @@ class ColorConstant {
   static const Color lightGreen = Color(0xFFF0FFF5);
   static const Color green = Color(0xFF8CFFB3);
 
-  static const Color lightRed = Color(0xFFFFF2EB);
-  static const Color red = Color(0xFFFFD6BF);
+  static const Color lightRed = Color(0xFFFFECEE);
+  static const Color red = Color(0xFFFF445A);
 
   static const Color lightBlue = Color(0xFFEBF5FF);
   static const Color blue = Color(0xFF3AA1FF);

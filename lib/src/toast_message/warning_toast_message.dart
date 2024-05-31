@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../constants/color_constant.dart';
 import 'itoast_message_widget.dart';
 
@@ -20,9 +21,9 @@ class WarningToastMessage extends IToastMessageWidget {
           key: key,
           title: toastTitle,
           subTitle: toastSubtitle,
-          backgroundColor: ColorConstant.lightRed,
+          backgroundColor: ColorConstant.lightOrange,
           border: Border.all(
-            color: ColorConstant.red,
+            color: ColorConstant.orange,
           ),
           trailing: toastTrailing,
           onTap: onTapTrailing,
