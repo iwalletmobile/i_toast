@@ -21,10 +21,9 @@ class SuccessToastMessage extends IToastMessageWidget {
           key: key,
           title: toastTitle,
           subTitle: toastSubtitle,
-          backgroundColor: ColorConstant.lightGreen,
-          border: Border.all(
-            color: ColorConstant.green,
-          ),
+          contentColor: ColorConstants.statesSuccess.shade300,
+          border: Border.all(color: ColorConstants.statesSuccess.shade200),
+          backgroundColor: ColorConstants.statesSuccess.shade100,
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,

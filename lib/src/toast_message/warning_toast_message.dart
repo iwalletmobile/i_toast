@@ -21,10 +21,9 @@ class WarningToastMessage extends IToastMessageWidget {
           key: key,
           title: toastTitle,
           subTitle: toastSubtitle,
-          backgroundColor: ColorConstant.lightOrange,
-          border: Border.all(
-            color: ColorConstant.orange,
-          ),
+          contentColor: ColorConstants.statesWarning.shade300,
+          border: Border.all(color: ColorConstants.statesWarning.shade200),
+          backgroundColor: ColorConstants.statesWarning.shade100,
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,

@@ -34,7 +34,7 @@ class CustomToastMessage extends IToastMessageWidget {
           subTitle: toastSubtitle,
           backgroundColor: toastBackgroundColor,
           border: toastBorder,
-          textColor: toastTextColor,
+          contentColor: toastTextColor ?? Colors.black,
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,

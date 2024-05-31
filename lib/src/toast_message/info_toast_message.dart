@@ -21,10 +21,9 @@ class InfoToastMessage extends IToastMessageWidget {
           key: key,
           title: toastTitle,
           subTitle: toastSubtitle,
-          backgroundColor: ColorConstant.lightBlue,
-          border: Border.all(
-            color: ColorConstant.blue,
-          ),
+          contentColor: ColorConstants.statesInfo.shade300,
+          border: Border.all(color: ColorConstants.statesInfo.shade200),
+          backgroundColor: ColorConstants.statesInfo.shade100,
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,
