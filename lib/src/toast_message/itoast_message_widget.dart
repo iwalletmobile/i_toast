@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/extensions/context_extensions.dart';
 
 class IToastMessageWidget extends StatelessWidget {
-  final String title;
+  final String? title;
   final String description;
   final double? width;
   final double? height;
@@ -17,7 +17,7 @@ class IToastMessageWidget extends StatelessWidget {
 
   const IToastMessageWidget({
     Key? key,
-    required this.title,
+    this.title,
     required this.description,
     this.width,
     this.height,
@@ -28,9 +28,7 @@ class IToastMessageWidget extends StatelessWidget {
     required this.onTap,
     required this.leading,
     this.borderRadius,
-  }) : super(
-          key: key,
-        );
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class IToastMessageWidget extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Padding(
-                padding: const EdgeInsets.only(left: 8.0, top: 20.0),
+                padding: EdgeInsets.only(left: 8, top: title != null ? 20 : 13),
                 child: leading,
               ),
             ),
@@ -69,14 +67,15 @@ class IToastMessageWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   /// MARK: Toast message başlık
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: contentColor,
+                  if (title != null)
+                    Text(
+                      title!,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: contentColor,
+                      ),
                     ),
-                  ),
 
                   /// MARK: Toast message alt bilgi
                   Text(

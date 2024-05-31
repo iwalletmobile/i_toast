@@ -4,7 +4,7 @@ import '../constants/color_constant.dart';
 import 'itoast_message_widget.dart';
 
 class ErrorToastMessage extends IToastMessageWidget {
-  final String toastTitle;
+  final String? toastTitle;
   final String toastDescription;
   final Widget? toastTrailing;
   final VoidCallback onTapTrailing;
@@ -12,7 +12,7 @@ class ErrorToastMessage extends IToastMessageWidget {
 
   ErrorToastMessage({
     Key? key,
-    required this.toastTitle,
+    this.toastTitle,
     required this.toastDescription,
     required this.toastTrailing,
     required this.onTapTrailing,

@@ -50,10 +50,9 @@ class IToast extends StatelessWidget {
                     onPressed: () {
                       _showToastMessage(
                         context,
-                        toast.key.name.substring(0, 1).toUpperCase() +
-                            toast.key.name.substring(1),
                         "${toast.key.name} description.",
                         toast.key,
+                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
                         leading: Icon(
                           Icons.info,
                           color: toast.value,
@@ -64,8 +63,7 @@ class IToast extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
-                        '${toast.key.name.toUpperCase()} with leading and trailing'),
+                    child: Text('${toast.key.name.toUpperCase()} with leading and trailing'),
                   ).addSize;
                 },
               ),
@@ -75,18 +73,16 @@ class IToast extends StatelessWidget {
                     onPressed: () {
                       _showToastMessage(
                         context,
-                        toast.key.name.substring(0, 1).toUpperCase() +
-                            toast.key.name.substring(1),
                         "${toast.key.name} description.",
                         toast.key,
+                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
                         trailing: Icon(
                           Icons.close,
                           color: toast.value,
                         ),
                       );
                     },
-                    child: Text(
-                        '${toast.key.name.toUpperCase()} without trailing'),
+                    child: Text('${toast.key.name.toUpperCase()} without trailing'),
                   ).addSize;
                 },
               ),
@@ -96,18 +92,16 @@ class IToast extends StatelessWidget {
                     onPressed: () {
                       _showToastMessage(
                         context,
-                        toast.key.name.substring(0, 1).toUpperCase() +
-                            toast.key.name.substring(1),
                         "${toast.key.name} description.",
                         toast.key,
+                        title: toast.key.name.substring(0, 1).toUpperCase() + toast.key.name.substring(1),
                         leading: Icon(
                           Icons.info,
                           color: toast.value,
                         ),
                       );
                     },
-                    child:
-                        Text('${toast.key.name.toUpperCase()} without leading'),
+                    child: Text('${toast.key.name.toUpperCase()} without leading'),
                   ).addSize;
                 },
               ),
@@ -115,9 +109,9 @@ class IToast extends StatelessWidget {
                 onPressed: () {
                   _showToastMessage(
                     context,
-                    'Custom iToast',
                     "Custom iToast description.",
                     ToastType.custom,
+                    title: 'Custom iToast',
                     backgroundColor: Colors.blueGrey.shade50,
                     border: Border.all(
                       color: Colors.blueGrey,
@@ -139,9 +133,9 @@ class IToast extends StatelessWidget {
 
 void _showToastMessage(
   BuildContext context,
-  String title,
   String description,
   ToastType toastType, {
+  String? title,
   Color? backgroundColor,
   Border? border,
   Widget? trailing,
