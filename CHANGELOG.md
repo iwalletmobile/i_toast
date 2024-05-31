@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Darken the shade of green color
+
 ## 0.0.4
 
 * Improve comments, export default colors, edit toasts
