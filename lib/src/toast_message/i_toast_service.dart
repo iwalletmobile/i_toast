@@ -127,7 +127,8 @@ class _ToastMessageWidget extends StatefulWidget {
     this.toastHeight,
     this.onTapTrailing,
   })  : assert(
-          toastType == ToastType.custom || (toastBackgroundColor == null && toastBorder == null),
+          toastType == ToastType.custom ||
+              (toastBackgroundColor == null && toastBorder == null),
           StringConstant.assertMessage,
         ),
         super(key: key);
@@ -137,7 +138,8 @@ class _ToastMessageWidget extends StatefulWidget {
 }
 
 /// State class for the toast message widget.
-class _ToastMessageWidgetState extends State<_ToastMessageWidget> with SingleTickerProviderStateMixin {
+class _ToastMessageWidgetState extends State<_ToastMessageWidget>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animationSlide;
   late Animation<double> _animationOpacity;
@@ -149,8 +151,10 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget> with SingleTic
       vsync: this,
       duration: const Duration(milliseconds: 400),
     );
-    _animationSlide = Tween<double>(begin: -1.0, end: 0.0).animate(_animationController);
-    _animationOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
+    _animationSlide =
+        Tween<double>(begin: -1.0, end: 0.0).animate(_animationController);
+    _animationOpacity =
+        Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
     _animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         Future<void>.delayed(widget.duration).then((_) {
