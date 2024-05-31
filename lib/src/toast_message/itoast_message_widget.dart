@@ -4,7 +4,7 @@ import '../utils/extensions/context_extensions.dart';
 
 class IToastMessageWidget extends StatelessWidget {
   final String title;
-  final String subTitle;
+  final String description;
   final double? width;
   final double? height;
   final Color? backgroundColor;
@@ -18,7 +18,7 @@ class IToastMessageWidget extends StatelessWidget {
   const IToastMessageWidget({
     Key? key,
     required this.title,
-    required this.subTitle,
+    required this.description,
     this.width,
     this.height,
     this.border,
@@ -80,7 +80,7 @@ class IToastMessageWidget extends StatelessWidget {
 
                   /// MARK: Toast message alt bilgi
                   Text(
-                    subTitle,
+                    description,
                     style: TextStyle(color: contentColor),
                   ),
                 ],

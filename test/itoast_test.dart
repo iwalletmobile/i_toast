@@ -13,7 +13,7 @@ void main() {
                 IToastService.show(
                   context,
                   title: 'Title',
-                  description: 'Subtitle',
+                  description: 'Description',
                   trailing: Container(),
                   leading: Container(),
                   toastType: ToastType.success,

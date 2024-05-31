@@ -6,7 +6,7 @@ class CustomToastMessage extends IToastMessageWidget {
   final double? toastWidth;
   final double? toastHeight;
   final String toastTitle;
-  final String toastSubtitle;
+  final String toastDescription;
   final Widget? toastTrailing;
   final VoidCallback onTapTrailing;
   final Widget? toastLeading;
@@ -20,7 +20,7 @@ class CustomToastMessage extends IToastMessageWidget {
     this.toastWidth,
     this.toastHeight,
     required this.toastTitle,
-    required this.toastSubtitle,
+    required this.toastDescription,
     required this.toastTrailing,
     required this.onTapTrailing,
     required this.toastLeading,
@@ -31,7 +31,7 @@ class CustomToastMessage extends IToastMessageWidget {
   }) : super(
           key: key,
           title: toastTitle,
-          subTitle: toastSubtitle,
+          description: toastDescription,
           backgroundColor: toastBackgroundColor,
           border: toastBorder,
           contentColor: toastTextColor ?? Colors.black,

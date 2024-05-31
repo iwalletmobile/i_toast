@@ -52,7 +52,7 @@ class IToast extends StatelessWidget {
                         context,
                         toast.key.name.substring(0, 1).toUpperCase() +
                             toast.key.name.substring(1),
-                        "${toast.key.name} subtitle.",
+                        "${toast.key.name} description.",
                         toast.key,
                         leading: Icon(
                           Icons.info,
@@ -77,7 +77,7 @@ class IToast extends StatelessWidget {
                         context,
                         toast.key.name.substring(0, 1).toUpperCase() +
                             toast.key.name.substring(1),
-                        "${toast.key.name} subtitle.",
+                        "${toast.key.name} description.",
                         toast.key,
                         trailing: Icon(
                           Icons.close,
@@ -98,7 +98,7 @@ class IToast extends StatelessWidget {
                         context,
                         toast.key.name.substring(0, 1).toUpperCase() +
                             toast.key.name.substring(1),
-                        "${toast.key.name} subtitle.",
+                        "${toast.key.name} description.",
                         toast.key,
                         leading: Icon(
                           Icons.info,
@@ -116,7 +116,7 @@ class IToast extends StatelessWidget {
                   _showToastMessage(
                     context,
                     'Custom iToast',
-                    "Custom iToast subtitle.",
+                    "Custom iToast description.",
                     ToastType.custom,
                     backgroundColor: Colors.blueGrey.shade50,
                     border: Border.all(
@@ -140,7 +140,7 @@ class IToast extends StatelessWidget {
 void _showToastMessage(
   BuildContext context,
   String title,
-  String subTitle,
+  String description,
   ToastType toastType, {
   Color? backgroundColor,
   Border? border,
@@ -152,7 +152,7 @@ void _showToastMessage(
   IToastService.show(
     context,
     title: title,
-    description: subTitle,
+    description: description,
     trailing: trailing,
     toastType: toastType,
     leading: leading,

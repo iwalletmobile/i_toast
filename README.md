@@ -16,7 +16,7 @@ i_toast is a Flutter package used to display toast messages in applications. Thi
 
 ## Features
 
-- **Title and subtitle content:** iToast allows including both title and subtitle content in the toast messages.
+- **Title and description content:** iToast allows including both title and description content in the toast messages.
 - **Complementary content with an icon or custom widget:** Users can add icons or custom widgets to enhance the toast messages.
 - **Display duration as desired:** iToast provides options to specify the duration for which the toast message is displayed.
 - **Customizable background color, border color, and border radius:** Users can customize the background color, border color, and border radius of the toast messages according to their preferences.
@@ -93,7 +93,7 @@ class IToast extends StatelessWidget {
                   _showToastMessage(
                     context,
                     toastType[index].name.substring(0, 1).toUpperCase() + toastType[index].name.substring(1),
-                    "${toastType[index].name} subtitle.",
+                    "${toastType[index].name} description.",
                     toastType[index],
                     leading: const Icon(Icons.info),
                   );
@@ -106,7 +106,7 @@ class IToast extends StatelessWidget {
                 _showToastMessage(
                   context,
                   'Custom iToast',
-                  "Custom iToast subtitle.",
+                  "Custom iToast description.",
                   ToastType.custom,
                   backgroundColor: Colors.blueGrey.shade50,
                   borderColor: Colors.blueGrey,
@@ -126,7 +126,7 @@ class IToast extends StatelessWidget {
 void _showToastMessage(
   BuildContext context,
   String title,
-  String subTitle,
+  String description,
   ToastType toastType, {
   Color? backgroundColor,
   Color? borderColor,
@@ -136,7 +136,7 @@ void _showToastMessage(
   iToast(
     context,
     title: Text(title),
-    subtitle: Text(subTitle),
+    description: Text(description),
     trailing: const Icon(Icons.close_rounded),
     toastType: toastType,
     leading: leading,
