@@ -55,7 +55,7 @@ class IToastService {
 
   static void show(
     BuildContext context, {
-    required String title,
+    String? title,
     required String description,
     required ToastType toastType,
     Duration duration = const Duration(milliseconds: 7000),
@@ -113,7 +113,7 @@ class IToastService {
 
 /// Internal widget for displaying the toast message.
 class _ToastMessageWidget extends StatefulWidget {
-  final String title;
+  final String? title;
   final String description;
   final Widget? trailing;
   final Function onDismissed;
@@ -130,7 +130,7 @@ class _ToastMessageWidget extends StatefulWidget {
 
   const _ToastMessageWidget({
     Key? key,
-    required this.title,
+    this.title,
     required this.onDismissed,
     required this.toastType,
     required this.description,
@@ -206,7 +206,7 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
   /// Find the appropriate toast widget based on the toast type.
   IToastMessageWidget _findToastWidget(
     ToastType toastType,
-    String title,
+    String? title,
     String description,
     Widget? trailing,
     Widget? leading,

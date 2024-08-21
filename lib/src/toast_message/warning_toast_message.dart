@@ -5,7 +5,7 @@ import 'itoast_message_widget.dart';
 
 class WarningToastMessage extends IToastMessageWidget {
   final Widget? toastTrailing;
-  final String toastTitle;
+  final String? toastTitle;
   final String toastDescription;
   final VoidCallback onTapTrailing;
   final Widget? toastLeading;
@@ -13,7 +13,7 @@ class WarningToastMessage extends IToastMessageWidget {
   WarningToastMessage({
     Key? key,
     required this.toastTrailing,
-    required this.toastTitle,
+    this.toastTitle,
     required this.toastDescription,
     required this.onTapTrailing,
     required this.toastLeading,

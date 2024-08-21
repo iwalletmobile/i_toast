@@ -5,7 +5,7 @@ import 'itoast_message_widget.dart';
 class CustomToastMessage extends IToastMessageWidget {
   final double? toastWidth;
   final double? toastHeight;
-  final String toastTitle;
+  final String? toastTitle;
   final String toastDescription;
   final Widget? toastTrailing;
   final VoidCallback onTapTrailing;
@@ -19,7 +19,7 @@ class CustomToastMessage extends IToastMessageWidget {
     Key? key,
     this.toastWidth,
     this.toastHeight,
-    required this.toastTitle,
+    this.toastTitle,
     required this.toastDescription,
     required this.toastTrailing,
     required this.onTapTrailing,
