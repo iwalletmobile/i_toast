@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Make `title` parameter is optional and add CONTRIBUTING.md
+
 ## 0.0.5
 
 * Darken the shade of green color

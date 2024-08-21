@@ -13,6 +13,7 @@ i_toast is a Flutter package used to display toast messages in applications. Thi
   - [Installation](#installation)
   - [Import](#import)
   - [Usage](#usage)
+  - [Contribute](#contribute)
   - [License](#license)
 
 ## Features
@@ -36,7 +37,7 @@ iToast offers five different types of toast messages:
 ## Installation
 ```yaml
 dependencies:
-  itoast: <latest version>
+  itoast: ^0.0.6
 ```
 
 ## Import
@@ -150,6 +151,10 @@ void _showToastMessage(
 
 
 ```
+
+### Contribute
+
+If you would like to contribute to the package (e.g. by improving the documentation, solving a bug, or adding a cool new feature), please carefully review our [contribution guide](./CONTRIBUTING.md) and send us your [pull request](https://github.com/iwalletmobile/i_toast/pulls).
 
 ## License
  
