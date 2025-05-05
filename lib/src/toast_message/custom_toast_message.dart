@@ -14,6 +14,8 @@ class CustomToastMessage extends IToastMessageWidget {
   final Border? toastBorder;
   final Color? toastTextColor;
   final BorderRadius? toastBorderRadius;
+  final TextStyle? toastTitleStyle;
+  final TextStyle? toastDescriptionStyle;
 
   const CustomToastMessage({
     Key? key,
@@ -28,6 +30,8 @@ class CustomToastMessage extends IToastMessageWidget {
     this.toastBorder,
     this.toastTextColor,
     this.toastBorderRadius,
+    this.toastTitleStyle,
+    this.toastDescriptionStyle,
   }) : super(
           key: key,
           title: toastTitle,
@@ -41,5 +45,7 @@ class CustomToastMessage extends IToastMessageWidget {
           borderRadius: toastBorderRadius,
           width: toastWidth,
           height: toastHeight,
+          titleStyle: toastTitleStyle,
+          descriptionStyle: toastDescriptionStyle,
         );
 }

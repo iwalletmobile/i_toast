@@ -9,6 +9,8 @@ class WarningToastMessage extends IToastMessageWidget {
   final String toastDescription;
   final VoidCallback onTapTrailing;
   final Widget? toastLeading;
+  final TextStyle? toastTitleStyle;
+  final TextStyle? toastDescriptionStyle;
 
   WarningToastMessage({
     Key? key,
@@ -17,6 +19,8 @@ class WarningToastMessage extends IToastMessageWidget {
     required this.toastDescription,
     required this.onTapTrailing,
     required this.toastLeading,
+    this.toastTitleStyle,
+    this.toastDescriptionStyle,
   }) : super(
           key: key,
           title: toastTitle,
@@ -27,5 +31,7 @@ class WarningToastMessage extends IToastMessageWidget {
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,
+          titleStyle: toastTitleStyle,
+          descriptionStyle: toastDescriptionStyle,
         );
 }

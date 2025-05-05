@@ -29,6 +29,9 @@ import 'warning_toast_message.dart';
 /// * [toastBorderRadius] The border radius of the toast message.
 /// * [toastWidth] The width of the toast message.
 /// * [toastHeight] The height of the toast message.
+/// * [toastTextColor] The text color of the toast message. If titleStyle or descriptionStyle are not provided, this will be used.
+/// * [titleStyle] The text style for the title.
+/// * [descriptionStyle] The text style for the description.
 
 class IToastService {
   /// Shows a Toast Message with an OverlayEntry on top of the screen
@@ -68,6 +71,8 @@ class IToastService {
     double? toastWidth,
     double? toastHeight,
     VoidCallback? onTapTrailing,
+    TextStyle? titleStyle,
+    TextStyle? descriptionStyle,
   }) {
     OverlayEntry? overlayEntry;
     overlayEntry = OverlayEntry(
@@ -95,6 +100,8 @@ class IToastService {
               toastWidth: toastWidth,
               toastHeight: toastHeight,
               onTapTrailing: onTapTrailing,
+              titleStyle: titleStyle,
+              descriptionStyle: descriptionStyle,
             ),
           ),
         );
@@ -127,6 +134,8 @@ class _ToastMessageWidget extends StatefulWidget {
   final double? toastWidth;
   final double? toastHeight;
   final VoidCallback? onTapTrailing;
+  final TextStyle? titleStyle;
+  final TextStyle? descriptionStyle;
 
   const _ToastMessageWidget({
     Key? key,
@@ -144,6 +153,8 @@ class _ToastMessageWidget extends StatefulWidget {
     this.toastWidth,
     this.toastHeight,
     this.onTapTrailing,
+    this.titleStyle,
+    this.descriptionStyle,
   })  : assert(
           toastType == ToastType.custom ||
               (toastBackgroundColor == null && toastBorder == null),
@@ -217,6 +228,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
     double? width,
     double? height,
     VoidCallback? onTapTrailing,
+    TextStyle? titleStyle,
+    TextStyle? descriptionStyle,
   ) {
     switch (toastType) {
       case ToastType.success:
@@ -226,6 +239,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
       case ToastType.error:
         return ErrorToastMessage(
@@ -234,6 +249,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
       case ToastType.info:
         return InfoToastMessage(
@@ -242,6 +259,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
       case ToastType.warning:
         return WarningToastMessage(
@@ -250,6 +269,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
       case ToastType.custom:
         return CustomToastMessage(
@@ -264,6 +285,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastBorderRadius: borderRadius,
           toastWidth: width,
           toastHeight: height,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
       default:
         return SuccessToastMessage(
@@ -272,6 +295,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
           toastTrailing: trailing,
           onTapTrailing: onTapTrailing ?? _hide,
           toastLeading: leading,
+          toastTitleStyle: titleStyle,
+          toastDescriptionStyle: descriptionStyle,
         );
     }
   }
@@ -304,6 +329,8 @@ class _ToastMessageWidgetState extends State<_ToastMessageWidget>
                 widget.toastWidth,
                 widget.toastHeight,
                 widget.onTapTrailing,
+                widget.titleStyle,
+                widget.descriptionStyle,
               ),
             ),
           ),
