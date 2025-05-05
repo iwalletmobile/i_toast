@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Add optional `titleStyle` and `description` parameters.
+
 ## 0.0.6
 
 * Make `title` parameter is optional and add CONTRIBUTING.md

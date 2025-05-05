@@ -37,7 +37,7 @@ iToast offers five different types of toast messages:
 ## Installation
 ```yaml
 dependencies:
-  itoast: ^0.0.6
+  itoast: ^0.0.7
 ```
 
 ## Import
@@ -127,28 +127,34 @@ class IToast extends StatelessWidget {
 
 void _showToastMessage(
   BuildContext context,
-  String title,
   String description,
   ToastType toastType, {
+  String? title,
   Color? backgroundColor,
-  Color? borderColor,
+  Border? border,
+  Widget? trailing,
   Widget? leading,
+  Color? textColor,
   BorderRadius? borderRadius,
+  TextStyle? titleStyle,
+  TextStyle? descriptionStyle,
 }) {
-  iToast(
+  IToastService.show(
     context,
-    title: Text(title),
-    description: Text(description),
-    trailing: const Icon(Icons.close_rounded),
+    title: title,
+    description: description,
+    trailing: trailing,
     toastType: toastType,
     leading: leading,
     duration: Durations.extralong4,
     toastBackgroundColor: backgroundColor,
-    toastBorderColor: borderColor,
+    toastBorder: border,
     toastBorderRadius: borderRadius,
+    toastTextColor: Colors.red, // If titleStyle or descriptionStyle are not provided, this will be used.
+    titleStyle: titleStyle,
+    descriptionStyle: descriptionStyle,
   );
 }
-
 
 ```
 
