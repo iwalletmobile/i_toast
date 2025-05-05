@@ -9,6 +9,8 @@ class InfoToastMessage extends IToastMessageWidget {
   final Widget? toastTrailing;
   final VoidCallback onTapTrailing;
   final Widget? toastLeading;
+  final TextStyle? toastTitleStyle;
+  final TextStyle? toastDescriptionStyle;
 
   InfoToastMessage({
     Key? key,
@@ -17,6 +19,8 @@ class InfoToastMessage extends IToastMessageWidget {
     required this.toastTrailing,
     required this.onTapTrailing,
     required this.toastLeading,
+    this.toastTitleStyle,
+    this.toastDescriptionStyle,
   }) : super(
           key: key,
           title: toastTitle,
@@ -27,5 +31,7 @@ class InfoToastMessage extends IToastMessageWidget {
           trailing: toastTrailing,
           onTap: onTapTrailing,
           leading: toastLeading,
+          titleStyle: toastTitleStyle,
+          descriptionStyle: toastDescriptionStyle,
         );
 }

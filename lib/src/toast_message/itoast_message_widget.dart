@@ -14,6 +14,8 @@ class IToastMessageWidget extends StatelessWidget {
   final VoidCallback onTap;
   final Widget? leading;
   final BorderRadius? borderRadius;
+  final TextStyle? descriptionStyle;
+  final TextStyle? titleStyle;
 
   const IToastMessageWidget({
     Key? key,
@@ -28,6 +30,8 @@ class IToastMessageWidget extends StatelessWidget {
     required this.onTap,
     required this.leading,
     this.borderRadius,
+    this.descriptionStyle,
+    this.titleStyle,
   }) : super(key: key);
 
   @override
@@ -70,17 +74,18 @@ class IToastMessageWidget extends StatelessWidget {
                   if (title != null)
                     Text(
                       title!,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: contentColor,
-                      ),
+                      style: titleStyle ??
+                          TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: contentColor,
+                          ),
                     ),
 
                   /// MARK: Toast message alt bilgi
                   Text(
                     description,
-                    style: TextStyle(color: contentColor),
+                    style: descriptionStyle ?? TextStyle(color: contentColor),
                   ),
                 ],
               ),
