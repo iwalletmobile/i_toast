@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Add default color for `description`.
+
 ## 0.0.7
 
 * Add optional `titleStyle` and `description` parameters.
