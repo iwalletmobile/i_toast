@@ -85,7 +85,8 @@ class IToastMessageWidget extends StatelessWidget {
                   /// MARK: Toast message alt bilgi
                   Text(
                     description,
-                    style: descriptionStyle?.copyWith(color: contentColor) ?? TextStyle(color: contentColor),
+                    style: descriptionStyle?.copyWith(color: contentColor) ??
+                        TextStyle(color: contentColor),
                   ),
                 ],
               ),
